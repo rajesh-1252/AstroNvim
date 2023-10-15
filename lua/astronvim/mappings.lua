@@ -19,6 +19,26 @@ local sections = {
   t = { desc = get_icon("Terminal", 1, true) .. "Terminal" },
 }
 
+
+
+--TODO Custom configuration --  
+
+-- 1. shift plus h & l move between tabs 
+maps.n["H"] = { "", desc = "Unset <leader>H" }
+maps.n["L"] = { "", desc = "Unset <leader>L" }
+
+maps.n["H"] = {
+  function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+  desc = "Previous buffer",
+}
+maps.n["L"] =
+  { function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" }
+-------------- 1. end ------------------------
+
+--2. 
+
+-- --------------------custom mapping end------------------------
+
 -- Normal --
 -- Standard Operations
 maps.n["j"] = { "v:count == 0 ? 'gj' : 'j'", expr = true, desc = "Move cursor down" }
@@ -41,8 +61,7 @@ maps.n["<leader>pS"] = { function() require("lazy").sync() end, desc = "Plugins 
 maps.n["<leader>pu"] = { function() require("lazy").check() end, desc = "Plugins Check Updates" }
 maps.n["<leader>pU"] = { function() require("lazy").update() end, desc = "Plugins Update" }
 
--- AstroNvim
-maps.n["<leader>pa"] = { "<cmd>AstroUpdatePackages<cr>", desc = "Update Plugins and Mason Packages" }
+-- AstroNvim maps.n["<leader>pa"] = { "<cmd>AstroUpdatePackages<cr>", desc = "Update Plugins and Mason Packages" }
 maps.n["<leader>pA"] = { "<cmd>AstroUpdate<cr>", desc = "AstroNvim Update" }
 maps.n["<leader>pv"] = { "<cmd>AstroVersion<cr>", desc = "AstroNvim Version" }
 maps.n["<leader>pl"] = { "<cmd>AstroChangelog<cr>", desc = "AstroNvim Changelog" }

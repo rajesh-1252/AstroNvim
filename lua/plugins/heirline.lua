@@ -13,6 +13,9 @@ return {
             }, args.buf)
         end,
       },
+
+      -- fdf
+
       statusline = { -- statusline
         hl = { fg = "fg", bg = "bg" },
         status.component.mode(),

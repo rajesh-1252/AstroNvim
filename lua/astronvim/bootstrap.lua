@@ -1,4 +1,4 @@
---- ### AstroNvim Core Bootstrap
+-- ### AstroNvim Core Bootstrap
 --
 -- This module simply sets up the global `astronvim` module.
 -- This is automatically loaded and should not be resourced, everything is accessible through the global `astronvim` variable.
